@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta  name="apple-mobile-web-app-capable" content="yes">
+		<meta  name="apple-mobile-web-app-status-bar-style" content="black">
+		<meta  name="apple-mobile-web-app-title" content="css3">
+		<!---->
+		<meta  name="mobile-web-app-capable" content="yes">
+		<meta  name="application-name" content="black">
+		<meta  name="theme-color" content="#97785C">
+		<link rel="icon" sizes="192*192" href="logo.jpg" />
+		<!---->
+		<title></title>
+		<link rel="apple-touch-icon" href="logo.jpg" />
+		<script src='js/jquery.js'></script>
+		<script src='js/wuziqi.js'></script>
+	</head>
+	<style>
+	*{
+		padding: 0;
+		margin: 0;
+		list-style: none;
+	}
+	body{
+		background: url(img/bg.jpg);
+		background-size:cover;
+	}
+	.bg{
+		width: 100%;
+		height: 100%;
+		position: absolute;
+		left: 0;
+		top:0;
+		background: url(img/2.jpg)no-repeat;
+		background-size:100%;
+		z-index: 1000;
+	}
+	.come{
+		width: 150px;
+		height: 50px;
+		line-height: 50px;
+		text-align: center;
+		font-size: 30px;
+		color:#000;
+		position: absolute;
+		left: 0;
+		top:0;
+		right:0;
+		bottom:-520px;
+		margin: auto;
+		cursor: pointer;
+	}
+		#canvas{
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			border:1px solid #000;
+			background: url(img/qipan.jpg); 
+			display:none;
+			margin:auto;
+		}
+		.box{
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			width: 500px;
+			height: 500px;
+			box-shadow: 0 0 0 1000px rgba(0,0,0,0.6);
+			margin:auto;
+			background: #fff;
+			display: none;
+			z-index: 100;
+			transition: all 2s ease;
+		}
+		#close{
+			width: 30px;
+			height: 30px;
+			background: #fff;
+			font-size: 16px;
+			color:#000;
+			position: absolute;
+			top:-15px;
+			right:-15px;
+			border-radius: 50%;
+			text-align: center;
+			line-height: 30px;
+			cursor: pointer;
+		}
+		.box img{
+			width: 100%;
+		}
+		a{
+			width: 500px;
+			height: 500px;
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			z-index: 200;
+		}
+		#info{
+			width: 200px;
+			height: 200px;
+			background: #fff;
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+			background: #fff;
+			z-index: 100;
+			display: none;
+			transition: all: 2s ease;
+		}
+		#info div{
+			width: 120px;
+			margin: 20px auto;
+			line-height: 40px;
+			border:1px solid #ccc;
+			text-align: center;
+			cursor: pointer;
+		}
+		.anniu{
+			position: absolute;
+			left:100px;
+			top:250px;
+		}
+		.anniu div{
+			padding: 10px 10px;
+			border-radius: 15px;
+			border:1px solid #000;
+			text-align: center;
+			font-size: 20px;
+			margin-bottom: 20px;
+			cursor: pointer;
+			position: relative;
+		}
+		.duizhanbox{
+			position: absolute;
+			top:43px;
+			left: 0;
+			background: #fff;
+			display: none;
+			z-index: 100;
+			box-sizing: border-box;
+			border:1px solid #000;
+			transition: all 2s linear;
+		}
+		.duizhanbox li{
+			line-height: 30px;
+			padding: 10px 9px;
+			color:#000;
+		}
+		.red{
+			background: #CDCDCD;
+			color:#fff;
+		}
+		.sanjiao{
+			position: absolute;
+			top:15px;
+			right:10px;
+			border-top:5px solid #000;
+			border-bottom: 0;
+			border-left:5px solid transparent;
+			border-right:5px solid transparent;
+		}
+		.act{
+			color:#fff;
+			background: #A9A488;
+		}
+		#clock{
+			/*border:1px solid #000;*/
+			position: absolute;
+			right:230px;
+			top:30px;
+		}
+		#clock img{
+			width: 100%;
+		}
+		#clock2{
+			/*border:1px solid #000;*/
+			position: absolute;
+			left:230px;
+			top:30px;
+		}
+		#clock2 img{
+			width: 100%;
+		}
+		.black{
+			font-size: 30px;
+			font-weight: bold;
+			color: #000;
+			position: absolute;
+			left:250px;
+			top:150px;
+		}
+		.white{
+			font-size: 30px;
+			font-weight: bold;
+			color: #000;
+			position: absolute;
+			right:250px;
+			top:150px;
+		}
+		.tc{
+			width: 200px;
+			height: 150px;
+			background: #fff;
+			position: absolute;
+			left:0;
+			top:0;
+			bottom: 0;
+			right:0;
+			margin: auto;
+			box-sizing: border-box;
+			display: none;
+		}
+		.qrgb{
+			font-size: 22px;
+			text-align: center;
+			margin-top: 40px;
+		}
+		.sure{
+			padding: 2px 5px;
+			font-size: 18px;
+			color:#000;
+			border:1px solid #000;
+			border-radius: 10px;
+			float: left;
+			margin-left: 30px;
+			margin-top: 53px;
+			cursor: pointer;
+		}
+		.quxiao{
+			padding: 2px 5px;
+			font-size: 18px;
+			color:#000;
+			border:1px solid #000;
+			border-radius: 10px;
+			float: left;
+			margin-left: 45px;
+			margin-top: 53px;
+			cursor: pointer;
+		}
+		.again:hover{
+			background: #CDCDCD;
+			color:#fff;
+		}
+		.text:hover{
+			background: #CDCDCD;
+			color:#fff;
+		}
+		.tuichu:hover{
+			background: #CDCDCD;
+			color:#fff;
+		}
+	</style>
+	<body>
+		<div class="bg">
+			<div class="come">进入游戏</div>
+		</div>
+		<audio src="5390.mp3" id='audio'></audio>
+		<canvas id='canvas' width="600" height="600"></canvas>
+		<canvas id="clock" width="100" height="100"></canvas>
+		<canvas id="clock2" width="100" height="100"></canvas>
+		<img src="img/3.png" id='img' alt="" hidden/>
+		<div class="box">
+			<div id="close">×</div>
+		</div>
+		<div id="info">
+			<div class="again">再来一局</div>
+			<div class="text">黑棋赢</div>
+			<div class="tuichu">退出</div>
+		</div>
+		<div class='anniu'>
+			<div id="start">开始</div>
+			<div id="look">查看棋谱</div>
+			<div id="duizhan">对战
+				<p class='sanjiao'></p>
+				<ul class="duizhanbox">
+					<li class='normal red'>人人对战</li>
+					<li class='ai'>人机对战</li>
+				</ul>
+			</div>
+			<div id="out">退出</div>
+		</div>
+		<div class="black">黑方</div>
+		<div class="white">白方</div>
+		<div class="tc">
+			<div class='qrgb'>确认关闭？</div>
+			<div class="sure">确定</div>
+			<div class="quxiao">取消</div>
+		</div>
+	</body>
+</html>
+<script>
+//$(function(){
+//	var canvas=document.getElementById("canvas");
+//	var ctx=canvas.getContext("2d");
+//	var canva=document.getElementById("clock");
+//	var ctx1=canva.getContext("2d");
+//	var audio=document.getElementById("audio");
+//	var sep=40;//一个棋子
+//	var sr=4;//小圆点
+//	var br=18;//棋子
+//	var luozi1={};
+//
+//	//进入游戏
+//	$(".come").on("click",function(){
+//		$(".bg").css("display","none")
+//	})
+//	//画表
+//	function miaozhen(){
+//		img.onload=function(){
+//			ctx1.clearRect(0,0,100,100)
+//			ctx1.save();
+//			var img=$("#img").get(0);
+//			ctx1.drawImage(img,5,4,213,213,0,0,100,100)
+//			ctx1.translate(50,50);
+//			ctx1.beginPath();
+//			ctx1.moveTo(0,0);
+//			ctx1.lineTo(0,-30);
+//			ctx1.moveTo(0,-30);
+//			ctx1.lineTo(-5,-26);
+//			ctx1.moveTo(0,-30);
+//			ctx1.lineTo(5,-26);
+//			ctx1.lineWidth=1;
+//			ctx1.closePath();
+//			ctx1.stroke();
+//			ctx1.restore();
+//		}
+//	}
+//	
+//	miaozhen()
+//	
+//	function q(x){
+//		return (x+0.5)*sep+0.5;
+//	}
+//	
+//	function circle(x,y){
+//		ctx.save();
+//		ctx.translate(q(x),q(y))
+//		ctx.beginPath();
+//		ctx.arc(0,0,sr,0,Math.PI*2);
+//		ctx.closePath();
+//		ctx.fill();
+//		ctx.restore();
+//	}
+//	function qipan(){
+//		ctx.clearRect(0,0,600,600)
+//		ctx.save();
+//		ctx.beginPath();
+//		for(var i=0;i<15;i++){
+//			ctx.moveTo(q(i),q(0));
+//			ctx.lineTo(q(i),q(14));
+//			ctx.moveTo(q(0),q(i));
+//			ctx.lineTo(q(14),q(i));
+//		}
+//		ctx.closePath();
+//		ctx.stroke();
+//		ctx.restore();
+//		circle(3,3);
+//		circle(3,11);
+//		circle(7,7);
+//		circle(11,3);
+//		circle(11,11);
+//	}
+//	qipan()
+//	
+//	function luozi(x,y,color){
+//		ctx.save();
+//		ctx.translate(q(x),q(y))
+//		ctx.beginPath();
+//		if(color==="black"){
+//			var bg=ctx.createRadialGradient(-5,-5,0,0,0,25);
+//			bg.addColorStop(0.05,'#ddd');
+//			bg.addColorStop(1,'#000');
+//		}else{
+//			var bg=ctx.createRadialGradient(-5,-5,0,0,0,25);
+//			bg.addColorStop(0.1,'#fff');
+//			bg.addColorStop(1,'#ccd');
+//		}
+//		ctx.shadowOffsetX=2;
+//		ctx.shadowOffsetY=3;
+//		ctx.shadowBlur=4;
+//		ctx.shadowColor="rgba(0,0,0,0.5)"
+//		ctx.fillStyle=bg;
+//		ctx.arc(0,0,br,0,Math.PI*2);
+//		ctx.fill();
+//		luozi1[x+"_"+y]=color;
+//		ctx.closePath();
+//		ctx.restore();
+//		audio.play();
+//	}
+//	//棋谱
+//	function chessManual(){
+//		ctx.save();
+//		ctx.font="20px 微软雅黑";
+//		ctx.textBaseline="middle";
+//		ctx.textAlign='center';
+//		var j =1;
+//		for(var k in luozi1){
+//			var arr=k.split("_");
+//			if(luozi1[k]==="black"){
+//				ctx.fillStyle="white";
+//			}else{
+//				ctx.fillStyle="black";
+//			}
+//			ctx.fillText(j++,q(parseInt(arr[0])),q(parseInt(arr[1])));
+//			
+//		}
+//		
+//		ctx.restore();
+//		$("<img>").attr("src",canvas.toDataURL()).appendTo(".box");
+////		$("<a>").attr("href",canvas.toDataURL()).attr("download","qipu.png").appendTo(".box")
+//	}
+//	
+//	
+//	
+////	luozi()
+//	var kaiguan=true;
+//	function moving(e){
+//		var x=Math.floor(e.offsetX/sep);
+//		var y=Math.floor(e.offsetY/sep);
+//		if(luozi1[x+"_"+y]){return}
+//		if(kaiguan){
+//			luozi(x,y,"black");
+//			if(panduan(x,y,"black")>=5){
+//				$(canvas).off("click")
+//				$("#info").css("display","block")
+//				$("#info .text").html("黑棋赢")
+////				chessManual()
+////				$(".box").show();
+//			}
+//		}else{
+//			luozi(x,y,"white");
+//			if(panduan(x,y,"white")>=5){
+//				$(canvas).off("click")
+//				$("#info").css("display","block")
+//				$("#info .text").html("白棋赢")
+////				chessManual();
+////				$(".box").show();
+//			}
+//		}
+//		
+//		kaiguan=!kaiguan
+//	}
+//	$("#start").on("click",function(){
+//		$(canvas).css("display","block")
+//		$(canvas).on("click",moving)
+//	})
+//	var divs=$(".anniu div");
+//	divs.each(function(index){
+//		$(this).on("click",function(){
+//			divs.removeClass("act");
+//			divs.eq(index).addClass('act');
+//		})
+//	})
+//	
+//	//退出
+//	$("#out").on("click",function(){
+//		$(".tc").css("display","block")
+//	})
+//	//取消
+//	$(".quxiao").on("click",function(){
+//		$(".tc").css("display","none")
+//	})
+//	//按钮退出
+//	$(".sure").on("click",function(){
+//		qipan();
+//		luozi1={};
+//		kaiguan=true;
+//		$(canvas).css("display","none")
+//		$(".tc").css("display","none")
+//		$(".bg").css("display","block")
+//	})
+//	//对战
+//	$("#duizhan").on("click",function(){
+//		$(".duizhanbox").css("display","block");
+//	})
+//	
+//	
+//	
+//	//lianjia
+//	function lianjie(a,b){
+//		return a + "_" + b
+//	}
+//	//输赢判断
+//	function panduan(x,y,color){
+//		var i;
+//		//循环
+//		//行
+//		var row=1;i=1;
+//		while(luozi1[lianjie(x+i,y)]===color){
+//			row++;
+//			i++;
+//		}
+//		i=1;
+//		while(luozi1[lianjie(x-i,y)]===color){
+//			row++;
+//			i++;
+//		}
+//		//列
+//		var lie=1; i=1;
+//		while(luozi1[lianjie(x,y+i)]===color){
+//			lie++;
+//			i++;
+//		}
+//		while(luozi1[lianjie(x,y-i)]===color){
+//			lie++;
+//			i++;
+//		}
+//		//左斜
+//		var zuoxie=1; i=1;
+//		while(luozi1[lianjie(x+i,y-i)]===color){
+//			zuoxie++;
+//			i++;
+//		}
+//		while(luozi1[lianjie(x-i,y+i)]===color){
+//			zuoxie++;
+//			i++;
+//		}
+//		//右斜
+//		var youxie=1; i=1;
+//		while(luozi1[lianjie(x+i,y+i)]===color){
+//			youxie++;
+//			i++;
+//		}
+//		while(luozi1[lianjie(x-i,y-i)]===color){
+//			youxie++;
+//			i++;
+//		}
+//		return Math.max(zuoxie,youxie,row,lie);
+//	}
+//	$("#look").on("click",function(){
+//		chessManual()
+//		$(".box").show();
+//	})
+//	$("#close").on("click",function(){
+//		$(".box").hide();
+//		for(var k in luozi1){
+//			var x=parseInt(k.split("_")[0]);
+//			var x=parseInt(k.split("_")[1]);
+//			luozi(x,y,luozi1[k])
+//			
+//		}
+//	})
+//	function restart(){
+//		qipan();
+//		luozi1={};
+//		kaiguan=true;
+//		$(canvas).on("click",moving)
+//		$("#info").css("display","none")
+//	}
+//	$(".again").on("click",restart)
+//	//info退出
+//	$(".tuichu").on("click",function(){
+//		qipan();
+//		luozi1={};
+//		kaiguan=true;
+//		$("#info").css("display","none")
+//		$(canvas).css("display","none")
+//		$(".bg").css("display","block")
+//	})	
+//})
+	
+
+</script>
