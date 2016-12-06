@@ -189,7 +189,6 @@ $(function(){
 				max=m;
 				pos.x=x;
 				pos.y=y;
-				console.log(pos)
 			}
 		}
 		var max2=-Infinity;
@@ -202,7 +201,6 @@ $(function(){
 				max2=m2;
 				pos2.x=x;
 				pos2.y=y;
-				console.log(pos2)
 			}
 		}
 		if(max>max2){
